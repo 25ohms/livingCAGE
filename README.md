@@ -5,7 +5,7 @@
 - A fully customized control interface using the SoundSwitch Control One with over 25,000 possible lighting combinations using Python and GLSL
 - A fully assembled network with pre-visuals, DMX mappings, and audio-reactivity to interact with the LEDs, all made in TouchDesigner
 
-[Demo](./demo/LC_demo.mp4)
+[Demo](https://youtu.be/fIoU9TbAJYw)
 
 ## Credits:
 - 'tap_tempo_v2.tox' from [Phillipe Dubost](https://philippedubost.com/)

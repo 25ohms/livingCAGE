@@ -26,6 +26,7 @@ def onCook(scriptOp):
     scriptOp.appendChan('play_pause')[0] = Sget('play_pause')
     scriptOp.appendChan('shift')[0] = Sget('shift')
     scriptOp.appendChan('bpm_tap')[0] = Sget('bpm_tap')
+    scriptOp.appendChan('ft_value')[0] = Sget('ft_value')
     scriptOp.appendChan('autoloop')[0] = Sget('autoloop')
     scriptOp.appendChan('autoloop_override')[0] = Sget('autoloop_override')
 

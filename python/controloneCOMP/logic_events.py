@@ -70,6 +70,7 @@ def _select_color(key, raw, shift_on):
 
 
 def onValueChange(channel, sampleIndex, val, prev):
+    #print(f'Channel: {channel.name}, Sample Index: {sampleIndex}, Val: {val}, Prev: {prev}')
     name = channel.name
     raw = 1 if val > 0.5 else 0
 

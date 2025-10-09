@@ -152,9 +152,10 @@ def onValueChange(channel, sampleIndex, val, prev):
             if raw == 1:
                 if Sget('movement_mode') == 1:
                     Sset('move_idx', idx)
-                    Sset('autoloop', 0)
                 if Sget('strobe_mode') == 1:
                     Sset('strobe_idx', idx)
+                    Sset('autoloop', 0)
+                    Sset('autoloop_override', 0)
                 if Sget('hue_mode') == 1:
                     Sset('hue_idx', idx)
             return

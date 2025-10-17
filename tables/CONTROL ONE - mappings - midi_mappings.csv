@@ -26,7 +26,8 @@ bank3,ch1n35,127,1
 bank4,ch1n36,127,1
 autoloop,ch1n61,127,1
 autoloop_intensity,ch1n62,0,0
-slider,ch1n50,0,1
+pb_trigger,ch1n50,1,1
+pb_value,ch1pitch,1,1
 group1,ch1n63,0,0
 group2,ch1n64,0,0
 b1,ch1n1,1,1

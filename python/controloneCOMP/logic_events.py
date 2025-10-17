@@ -101,20 +101,40 @@ def onValueChange(channel, sampleIndex, val, prev):
                 Sset('autoloop', 0)
         return
 
-    # Autoloop Momentary (Audio-reactivity) button
-    if name == 'ch1n61':  # autoloop momentary
+    # --- AUTOLOOP (audio-reactive override, index 10) ---
+    if name == 'ch1n61':  
         if val > 0.5:  # pressed
-            # save previous strobe_idx (only once)
-            if Sget('_prev_strobe_idx') == 0:  # unused slot to store
-                Sset('_prev_strobe_idx', Sget('strobe_idx'))
+            if Sget('_prev_strobe_idx_autoloop') == 0:
+                # Only store if currently in a normal strobe (1–9)
+                current = Sget('strobe_idx')
+                if 1 <= current <= 9:
+                    Sset('_prev_strobe_idx_autoloop', current)
             Sset('autoloop', 1)
             Sset('strobe_idx', 10)
         else:  # released
             Sset('autoloop', 0)
-            prev_idx = Sget('_prev_strobe_idx')
-            if prev_idx != 0:
+            prev_idx = Sget('_prev_strobe_idx_autoloop')
+            # Only restore if not currently in a higher override like pitch bend
+            if Sget('strobe_idx') != 11 and prev_idx != 0:
                 Sset('strobe_idx', prev_idx)
-            Sset('_prev_strobe_idx', 0)  # clear
+            Sset('_prev_strobe_idx_autoloop', 0)
+        return
+
+
+    # --- PITCH BEND (strobe override, index 11) ---
+    if name == 'ch1n50':
+        if val > 0.5:  # pressed
+            if Sget('_prev_strobe_idx_pitch') == 0:
+                Sset('_prev_strobe_idx_pitch', Sget('strobe_idx'))
+            Sset('strobe_idx', 11)
+        else:  # released
+            prev_idx = Sget('_prev_strobe_idx_pitch')
+            # if autoloop still active, go back to 10
+            if Sget('autoloop') == 1:
+                Sset('strobe_idx', 10)
+            elif prev_idx != 0:
+                Sset('strobe_idx', prev_idx)
+            Sset('_prev_strobe_idx_pitch', 0)
         return
 
     # Shift (momentary)

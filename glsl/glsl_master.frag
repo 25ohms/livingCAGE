@@ -56,15 +56,15 @@ void main() {
         fragColor = vec4(1.0, 1.0, 1.0, 1.0);
         return;
       }
-    else if (shape_idx == 33) { // white
+    else if (shape_idx == 34) { // white
         fragColor = vec4(1.0, 1.0, 1.0, 1.0);
         return;
     }
-    else if (shape_idx == 34) { // black
+    else if (shape_idx == 35) { // black
         fragColor = vec4(0.0, 0.0, 0.0, 1.0);
         return;
     }
-    else if (shape_idx == 35) { // uv
+    else if (shape_idx == 36) { // uv
         fragColor = vec4(0.5, 0.0, 1.0, 1.0);
         return;
     }

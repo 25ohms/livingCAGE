@@ -1,5 +1,5 @@
 # me - this DAT
-# 
+#
 # comp - the replicator component which is cooking
 # allOps - a list of all replicants, created or existing
 # newOps - the subset that were just created
@@ -9,8 +9,8 @@
 
 def onRemoveReplicant(comp, replicant):
 
-	replicant.destroy()
-	return
+    replicant.destroy()
+    return
 
 
 def onReplicate(comp, allOps, newOps, template, master):
@@ -33,16 +33,15 @@ def onReplicate(comp, allOps, newOps, template, master):
             # Even → flip horizontally
             t = parentComp.create(transformTOP, f"{r.name}_flip")
             t.inputConnectors[0].connect(src)
-            t.par.sx = 1 # previously -1 to account for flip, for now keep it the same
+            t.par.sx = -1  # previously -1 to account for flip, for now keep it the same
             t.nodeX = baseX
             t.nodeY = baseY
             src = t
         else:
             # Odd → pad with black pixels from pixel_lag
             lag_chop = parentComp.op('pixel_lag')
-            lag_val = int(lag_chop[0]) if lag_chop and lag_chop.numSamples > 0 else 0
-
-
+            lag_val = int(
+                lag_chop[0]) if lag_chop and lag_chop.numSamples > 0 else 0
 
         # Always end with a Null
         n = parentComp.create(nullTOP, f"{r.name}_null")

@@ -1,6 +1,6 @@
 # livingCAGE
-[!(original copy)[media/IMG_5883.jpg]
-[!(final product)[media/IMG_6298.jpg]
+![original copy](media/IMG_5883.jpg)
+![final product](media/IMG_6298.jpg)
 *What does this project contain?*
 - A fully modular setup for mapping LED bars to the vertical edges of a cage based on the number of sides in the cage, with adjustable resolution
 - A fully customized control interface using the SoundSwitch Control One with over 25,000 possible lighting combinations using Python and GLSL
